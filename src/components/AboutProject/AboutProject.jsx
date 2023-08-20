@@ -7,7 +7,7 @@ function AboutProject() {
       <div className="about-project__container">
         <div className="about-project__info">
           <h3 className="about-project__info-title">
-            Дипломный проект включал 5 этапов{' '}
+            Дипломный проект включал 5 этапов
           </h3>
           <p className="about-project__info-text">
             Составление плана, работу над бэкендом, вёрстку, добавление

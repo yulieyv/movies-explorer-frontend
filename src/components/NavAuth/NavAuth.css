@@ -2,13 +2,8 @@
   display: flex;
 }
 
-.nav-auth__list {
-
-}
-
 .nav-auth__link {
   text-align: right;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;

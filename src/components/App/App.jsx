@@ -18,7 +18,7 @@ function App() {
           path='/'
           element={
             <>
-              <Header />
+              <Header loggedIn={true}/>
               <Main />
               <Footer />
             </>
@@ -28,7 +28,7 @@ function App() {
           path='/movies'
           element={
             <>
-              <Header />
+              <Header loggedIn={true}/>
               <Movies />
               <Footer />
             </>

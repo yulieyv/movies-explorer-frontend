@@ -1,6 +1,7 @@
 .card {
   background-color: #fdfdfd;
   box-shadow: 0 16px 24px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
 }
 
 .card__image {
@@ -36,7 +37,7 @@
   line-height: normal;
 }
 
-.card__button {
+.card__buttons {
   display: flex;
   align-items: center;
 }
@@ -63,6 +64,12 @@
 
 .card__button_active {
   background: #2be080;
+}
+.card__saved-button_delete {
+  width: 24px;
+  height: 24px;
+  box-shadow: none;
+  background: #fff url(../../images/close-button.svg) center no-repeat;
 }
 
 .card__duration {

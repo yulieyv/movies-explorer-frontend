@@ -21,8 +21,8 @@ const MoviesCardList = ({ cards, buttonMore }) => {
       {isLoading ? (
         <Preloader />
       ) : (
-        buttonMore && (
-          <div className="movies-cards__button-container">
+        <div className="movies-cards__button-container">
+          {buttonMore && (
             <button
               onClick={handlePreloaderChange}
               className="movies-cards__button"
@@ -31,8 +31,8 @@ const MoviesCardList = ({ cards, buttonMore }) => {
             >
               Ещё
             </button>
-          </div>
-        )
+          )}
+        </div>
       )}
     </section>
   );

@@ -39,7 +39,6 @@
 .search__input::placeholder {
   color: #a0a0a0;
   cursor: pointer;
-
 }
 
 .search-form__button {
@@ -58,6 +57,7 @@
   font-weight: 500;
   line-height: 18px;
   transition: opacity 0.2s linear;
+  cursor: pointer;
 }
 
 .search-form__toggle {

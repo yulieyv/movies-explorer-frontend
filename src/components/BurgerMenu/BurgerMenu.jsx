@@ -1,6 +1,6 @@
 function BurgerMenu() {
   return(
-    console.log('Привет')
+    console.log('Это бургер')
   )
 }
 

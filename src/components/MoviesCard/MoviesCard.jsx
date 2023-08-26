@@ -17,7 +17,7 @@ const MoviesCard = ({ card }) => {
       <div className="card__container">
         <div className="card__element">
           <p className="card__title">{card.title}</p>
-          <div className="card__button">
+          <div className="card__buttons">
             {pathname === '/saved-movies' ? (
               <button
                 type="button"

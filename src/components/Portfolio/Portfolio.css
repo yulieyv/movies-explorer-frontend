@@ -30,8 +30,10 @@
 .portfolio__link {
   display: flex;
   justify-content: space-between;
-  background: transparent url(../../images/pointer.svg) right center / 20px
+  align-items: center;
+  background: transparent url(../../images/pointer.svg) right center / 18px 18px
     no-repeat;
+  margin-right: 5px;
   color: #000;
   font-size: 30px;
   font-style: normal;

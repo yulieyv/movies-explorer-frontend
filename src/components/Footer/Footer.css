@@ -1,6 +1,6 @@
 .footer {
   padding: 79px 70px 20px;
-  color:#FAFAFA;;
+  background-color: #FAFAFA;
 }
 
 .footer__title {
@@ -17,14 +17,14 @@
 .footer__container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 20px;
-  padding-top: 20px;
+  padding-top: 19px;
   border-top: 1px solid #e8e8e8;
 }
 
 .footer__year {
   color: #000;
-  font-feature-settings: 'clig' off, 'liga' off;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;

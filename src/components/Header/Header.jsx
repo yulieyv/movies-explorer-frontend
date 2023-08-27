@@ -1,22 +1,37 @@
-import "./Header.css";
-import React from "react";
-import { Link } from "react-router-dom";
-import logo from "../../images/logo.svg";
-import NavAuth from "../NavAuth/NavAuth";
-import Navigation from "../Navigation/Navigation";
+import './Header.css';
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import logo from '../../images/logo.svg';
+import NavAuth from '../NavAuth/NavAuth';
+import Navigation from '../Navigation/Navigation';
 
 const Header = ({ loggedIn }) => {
+  const { pathname } = useLocation();
+
   return (
-    <header className={`header ${!loggedIn ? "header__auth" : ""}`}>
-      <Link to="/" className="header__link">
-        <img
-          className="header__logo"
-          src={logo}
-          alt="Логотип Movies Explorer"
-        />
-      </Link>
-      {loggedIn ? <Navigation /> : <NavAuth />}
-    </header>
+    <>
+      {pathname === '/' ||
+      pathname === '/movies' ||
+      pathname === '/saved-movies' ||
+      pathname === '/profile' ? (
+        <header
+          className={`header ${
+            !loggedIn || pathname === '/' ? 'header__blue' : 'header__light'
+          }`}
+        >
+          <Link to="/" className="header__link">
+            <img
+              className="header__logo"
+              src={logo}
+              alt="Логотип Movies Explorer"
+            />
+          </Link>
+          {loggedIn ? <Navigation /> : <NavAuth />}
+        </header>
+      ) : (
+        ''
+      )}
+    </>
   );
 };
 

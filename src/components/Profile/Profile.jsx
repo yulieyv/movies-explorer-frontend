@@ -3,8 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Profile() {
-
-
   return (
     <>
       <section className="profile">
@@ -23,7 +21,7 @@ function Profile() {
             ></input>
           </label>
           <label className="profile__item">
-            <p className="profile__item-text">Email</p>
+            <p className="profile__item-text">E-mail</p>
             <input
               className="profile__input"
               defaultValue="pochta@yandex.ru"

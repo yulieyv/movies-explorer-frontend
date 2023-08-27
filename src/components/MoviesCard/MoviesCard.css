@@ -9,7 +9,7 @@
   height: 151px;
   border-radius: 10px 10px 0 0;
   object-fit: cover;
-  margin: 0;
+  margin-bottom: -4px;
   padding: 0;
 }
 
@@ -19,6 +19,7 @@
   justify-content: center;
   min-height: 39px;
   padding: 14px 12px;
+  margin: 0;
 }
 
 .card__element {
@@ -66,8 +67,8 @@
   background: #2be080;
 }
 .card__saved-button_delete {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   box-shadow: none;
   background: #fff url(../../images/close-button.svg) center no-repeat;
 }

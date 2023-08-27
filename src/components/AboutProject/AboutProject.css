@@ -1,12 +1,12 @@
 .about-project {
-  padding: 110px 70px;
+  padding: 109px 70px;
   color: #000;
 }
 
 .about-project__title {
   font-size: 22px;
   letter-spacing: -0.88px;
-  height: 50px;
+  padding-bottom: 23px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -39,7 +39,6 @@
   line-height: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
   margin: 0;
 }
 
@@ -54,7 +53,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin: 0 0 14px;
+  margin: 0 0 15px;
   background-color: #2be080;
   padding: 9px 14px;
 }

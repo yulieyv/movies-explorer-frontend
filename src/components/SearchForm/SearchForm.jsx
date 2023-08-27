@@ -15,7 +15,7 @@ function SearchForm() {
           <img
             className="search-form__logo"
             src={searchLogo}
-            alt="Логотип Movies Explorer"
+            alt="Логотип поиска: лупа"
           />
         </button>
       </div>

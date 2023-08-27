@@ -12,51 +12,18 @@ import PageNotFound from '../PageNotFound/PageNotFound';
 
 function App() {
   return (
-    <div className='app'>
+    <div className="app">
+      <Header loggedIn={false} />
       <Routes>
-        <Route
-          path='/'
-          element={
-            <>
-              <Header loggedIn={true}/>
-              <Main />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path='/movies'
-          element={
-            <>
-              <Header loggedIn={true}/>
-              <Movies />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path='/saved-movies'
-          element={
-            <>
-              <Header loggedIn={true} />
-              <SavedMovies />
-              <Footer />
-            </>
-          }
-        ></Route>
-        <Route path='/sign-up' element={<Register />}></Route>
-        <Route path='/sign-in' element={<Login />}></Route>
-        <Route
-          path='/profile'
-          element={
-            <>
-              <Header loggedIn={true} />
-              <Profile />
-            </>
-          }
-        ></Route>
-        <Route path='*' element={<PageNotFound />}></Route>
+        <Route path="/" element={<Main />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/saved-movies" element={<SavedMovies />}></Route>
+        <Route path="/sign-up" element={<Register />}></Route>
+        <Route path="/sign-in" element={<Login />}></Route>
+        <Route path="/profile" element={<Profile />}></Route>
+        <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
+      <Footer />
     </div>
   );
 }

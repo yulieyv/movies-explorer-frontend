@@ -9,16 +9,16 @@ const savedMovies = [
   {
     id: 2,
     title: '33 слова о дизайне',
-    duration: '1ч 42м',
+    duration: '1ч42м',
     image:
-      'https://i116.fastpic.org/big/2022/0313/55/3e6b59ce30a1ac5c829b49837f481a55.jpg',
+      'https://test.beatfilmfestival.ru/media/pages/movies/keith-haring-street-art-boy/2737274333-1676903312/1-500x325.jpg',
   },
   {
     id: 3,
     title: '33 слова о дизайне',
-    duration: '1ч 42м',
+    duration: '1ч42м',
     image:
-      'https://i116.fastpic.org/big/2022/0313/65/31144ff09f305777e0817dc43a9f5965.jpg',
+      'https://nastyhabitsmusic.files.wordpress.com/2018/10/15-b.png?w=387&h=254',
   },
 ];
 

@@ -1,8 +1,14 @@
 import './Profile.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function Profile() {
+function Profile(props) {
+  const [savedIn, setSavedIn] = useState(false);
+
+  function handleSaveClick() {
+    setSavedIn(true);
+  }
+
   return (
     <>
       <section className="profile">
@@ -31,10 +37,33 @@ function Profile() {
               required
             ></input>
           </label>
-          <Link className="profile__sign-link">Редактировать</Link>
-          <Link className="profile__sign-link profile__sign-link_exit" to="/">
-            Выйти из аккаунта
-          </Link>
+          {!savedIn ? (
+            <div className="profile__container">
+              <Link
+                to="/profile"
+                className="profile__sign-link"
+                onClick={handleSaveClick}
+              >
+                Редактировать
+              </Link>
+              <Link
+                className="profile__sign-link profile__sign-link_exit"
+                to="/"
+                onClick={props.onSignOut}
+              >
+                Выйти из аккаунта
+              </Link>
+            </div>
+          ) : (
+            <div className="profile__container">
+              <span className="profile__error">
+                При обновлении профиля произошла ошибка.
+              </span>
+              <button className="profile__submit-button" type="submit">
+                Сохранить
+              </button>
+            </div>
+          )}
         </form>
       </section>
     </>

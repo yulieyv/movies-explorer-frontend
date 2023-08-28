@@ -1,4 +1,5 @@
 import './SearchForm.css';
+import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import searchLogo from '../../images/search-logo.svg';
 
 function SearchForm() {
@@ -20,9 +21,7 @@ function SearchForm() {
         </button>
       </div>
       <div className="search-form__toggle">
-        <label className="search-form__tumbler">
-          <input type="checkbox" className="search-form__checkbox"></input>
-        </label>
+        <FilterCheckbox />
         <p className="search-form__short-films">Короткометражки</p>
       </div>
     </form>

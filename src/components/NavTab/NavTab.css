@@ -21,6 +21,14 @@
 }
 
 .nav-tab__link:hover {
-  opacity: .7;
+  opacity: .8;
   cursor: pointer;
+}
+
+
+@media screen and (max-width: 540px) {
+  .nav-tab__link {
+    font-size: 11px;
+    margin: 26px 12px;
+  }
 }

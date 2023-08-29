@@ -81,3 +81,25 @@
   font-weight: 400;
   line-height: normal;
 }
+
+@media screen and (max-width: 768px) {
+  .card {
+  }
+
+  .card__image {
+    max-width: 339px;
+    height: 190px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .card {
+    max-width: 300px;
+  }
+
+  .card__image {
+    max-width: 100%;
+    max-height: 168px;
+}
+}

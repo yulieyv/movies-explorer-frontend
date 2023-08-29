@@ -10,7 +10,9 @@ Frontend сервиса, в котором можно найти фильмы п
   
 ## Макет проекта в Figma
   
-https://www.figma.com/file/98qyWCvUFGHehHrPjLR9HH/light-2?type=design&node-id=891%3A3857&mode=design&t=RPxlkzqUsER5g9KU-1
+**Light-2**
+
+https://www.figma.com/file/6FMWkB94wE7KTkcCgUXtnC/light-1?type=design&node-id=1-298&mode=dev
 
 ---
 

@@ -6,9 +6,9 @@ import Preloader from '../Preloader/Preloader';
 const MoviesCardList = ({ cards, buttonMore }) => {
   const [isLoading, setLoading] = useState(false);
 
-  const handlePreloaderChange = () => {
+  function handlePreloaderChange() {
     setLoading(true);
-  };
+  }
 
   return (
     <section className="movies-cards">

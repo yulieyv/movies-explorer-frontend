@@ -43,3 +43,26 @@
   opacity: 0.7;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .movies-cards {
+    padding: 57px 30px 0;
+  }
+
+  .movies-cards__list {
+    grid-template-columns: repeat(auto-fill, minmax(339px, 1fr));
+    gap: 36px 30px;
+  }
+  
+}
+
+@media screen and (max-width: 540px) {
+  .movies-cards {
+    padding: 40px 10px 0;
+  }
+  
+  .movies-cards__list {
+    grid-template-columns: repeat(auto-fill, minmax(339px, 1fr));
+    row-gap: 20px;
+  }
+}

@@ -66,6 +66,10 @@
     background-color: #fff;
     padding: 79px 30px 20px;
   }
+
+  .footer__container {
+    margin-top: 21px;
+  }
 }
 
 @media screen and (max-width: 540px) {
@@ -82,12 +86,11 @@
     align-items: center;
     justify-content: center;
     padding-top: 28px;
-    margin-top: 21px;
   }
 
   .footer__year {
     font-size: 12px;
-    color: #A0A0A0;
+    color: #a0a0a0;
   }
 
   .footer__nav {

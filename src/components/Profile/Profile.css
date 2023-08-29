@@ -119,5 +119,52 @@
   line-height: normal;
   position: absolute;
   top: -30px;
-  
+}
+
+@media screen and (max-width: 768px) {
+  .profile__form {
+    padding: 236px 0 269px;
+  }
+
+  .profile__title {
+    margin-bottom: 95px;
+  }
+
+  .profile__item {
+    margin-bottom: 17px;
+  }
+
+  .profile__container {
+    margin-top: 178px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .profile__form {
+    padding: 70px 30px 40px;
+  }
+
+  .profile__title {
+    margin-bottom: 80px;
+  }
+
+  .profile__container {
+    margin-top: 347px;
+    max-width: 260px;
+    width: 100%;
+  }
+
+  .profile__sign-link {
+    font-size: 12px;
+  }
+
+  .profile__error {
+    font-size: 10px;
+    top: -30px;
+  }
+
+  .profile__submit-button {
+    font-size: 12px;
+    padding: 14px 67px;
+  }
 }

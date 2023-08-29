@@ -84,9 +84,12 @@
   }
 
   .about-project__timeline-title {
-    font-size: 11px;
     padding: 9px 10px;
   }
+
+  .about-project__info-title {
+  margin: 0 0 22px 0;
+}
   
   .about-project__info-text {
     font-size: 12px;  

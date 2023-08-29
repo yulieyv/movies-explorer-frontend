@@ -10,7 +10,7 @@ function AuthForm(props) {
     <>
       <section className="auth">
         <form className="auth__form">
-          <Link to="/">
+          <Link to="/" className="auth__logo_link">
             <img
               className="auth__logo"
               src={logo}

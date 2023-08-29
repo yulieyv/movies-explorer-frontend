@@ -67,7 +67,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px; /* 128.571% */
+  line-height: 18px;
 }
 
 .search-form__tumbler {
@@ -107,4 +107,27 @@
 
 .search-form__checkbox:checked:before {
   left: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .search-form {
+    padding: 80px 30px 62px 30px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .search-form {
+    padding: 80px 14px 49px;
+  }
+
+  .search-form__input {
+    padding: 0 12px;
+    font-size: 11px;
+    line-height: 17px;
+  }
+
+  .search-form__short-films {
+    font-size: 11px;
+    line-height: 18px;
+  }
 }

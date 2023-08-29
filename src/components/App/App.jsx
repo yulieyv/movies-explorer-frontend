@@ -16,12 +16,12 @@ function App() {
   const navigate = useNavigate();
 
   function handleRegisterSubmit() {
-    navigate("/sign-in", { replace: true });
+    navigate("/sign-in");
   }
 
   function handleLoginSubmit() {
     setLoggedIn(true);
-    navigate("/", { replace: true });
+    navigate("/");
   }
 
   function handleSignOutSubmit() {

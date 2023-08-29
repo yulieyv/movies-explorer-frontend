@@ -5,9 +5,14 @@ import BurgerMenu from '../BurgerMenu/BurgerMenu';
 
 function Navigation() {
   const { pathname } = useLocation();
-  const [isOpenNavMenu, setIsOpenNavMenu] = React.useState(false);
-  function togglePopupMenu() {
-    setIsOpenNavMenu(!isOpenNavMenu);
+  const [isOpenMenu, setIsOpenMenu] = React.useState(false);
+
+  function handleOpenMenu() {
+    setIsOpenMenu(true);
+  }
+
+  function handleCloseMenu() {
+    setIsOpenMenu(false);
   }
 
   return (
@@ -37,32 +42,24 @@ function Navigation() {
         >
           Сохранённые фильмы
         </Link>
-        {isOpenNavMenu ? (
-          <button
-            type="button"
-            aria-label="Открыть меню"
-            className={`${
-              !isOpenNavMenu
-                ? 'navigation__burger'
-                : `navigation__burger navigation__close-button`
-            } ${
-              pathname === '/'
-                ? 'navigation__burger'
-                : `navigation__burger navigation__close-button`
-            }`}
-            onClick={togglePopupMenu}
-          ></button>
-        ) : (
-          <BurgerMenu loggedIn={false} />
-        )}
       </div>
-
       <Link
         to="/profile"
         className="navigation__link navigation__link_type_profile"
       >
         Аккаунт
       </Link>
+      <button
+        type="button"
+        aria-label="Открыть меню"
+        className={`navigation__menu-button ${
+          pathname === '/' 
+            && 'navigation__menu-button_light'
+        }`}
+        onClick={handleOpenMenu}
+      >
+      </button>
+      {isOpenMenu && <BurgerMenu handleCloseMenu={handleCloseMenu} />}
     </nav>
   );
 }

@@ -10,11 +10,11 @@
   box-sizing: border-box;
 }
 
-.header__blue {
+.header-blue {
   background-color: #465dff;
 }
 
-.header__light {
+.header-light {
   background-color: #FFF;
 }
 

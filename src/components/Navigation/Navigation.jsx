@@ -24,7 +24,7 @@ function Navigation() {
             pathname === '/movies' ||
             pathname === '/saved-movies' ||
             pathname === '/profile'
-              ? 'navigation__movies_active'
+              ? 'navigation__link_active'
               : ''
           }`}
         >
@@ -36,7 +36,7 @@ function Navigation() {
             pathname === '/movies' ||
             pathname === '/saved-movies' ||
             pathname === '/profile'
-              ? 'navigation__movies_active'
+              ? 'navigation__link_active'
               : ''
           }`}
         >

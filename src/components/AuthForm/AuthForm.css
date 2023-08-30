@@ -19,7 +19,7 @@
   justify-self: start;
 }
 
-.auth__title {
+.auth__form-title {
   font-style: normal;
   font-size: 24px;
   font-style: normal;
@@ -31,7 +31,7 @@
   margin: 36px 0 40px 0;
 }
 
-.auth__item {
+.auth__form-item {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -40,15 +40,15 @@
   width: 100%;
 }
 
-.auth__item_invisible {
+.auth__form-item_invisible {
   display: none;
 }
 
-.auth__item:last-of-type {
+.auth__form-item:last-of-type {
   margin-bottom: 10px;
 }
 
-.auth__item-text {
+.auth__form-item-text {
   font-size: 10px;
   line-height: 12px;
   color: #a0a0a0;
@@ -76,6 +76,10 @@
 .auth__input:nth-last-of-type() {
   margin: 0;
   background-color: #ee3465;
+}
+
+.auth__input:focus {
+  border: 1px solid #465DFF;
 }
 
 .auth__error {
@@ -127,19 +131,19 @@
   text-align: center;
 }
 
-.auth__sign_title {
+.auth__sign-title {
   color: #a0a0a0;
   margin: 0;
 }
 
-.auth__sign_link {
+.auth__sign-link {
   color: #ff6838;
   text-decoration: none;
   transition: opacity 0.2s ease;
   cursor: pointer;
 }
 
-.auth__sign_link:hover {
+.auth__sign-link:hover {
   opacity: 0.7;
 }
 
@@ -154,11 +158,11 @@
     padding: 55px 30px 30px;
   }
 
-  .auth__logo_link {
+  .auth__form-logo {
     align-self: center;
   }
 
-  .auth__title {
+  .auth__form-title {
     margin: 46px 0 82px 0;
     text-align: center;
   }

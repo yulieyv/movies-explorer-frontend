@@ -21,7 +21,7 @@
   align-items: center;
 }
 
-.techs-info__title {
+.techs__info-title {
   font-size: 50px;
   font-style: normal;
   font-weight: 400;
@@ -31,7 +31,7 @@
   margin: 90px 0 26px 0;
 }
 
-.techs-info__text {
+.techs__info-text {
   max-width: 460px;
   text-align: center;
   font-size: 14px;
@@ -74,11 +74,11 @@
     padding: 90px 50px;
   }
 
-  .techs-info__title {
+  .techs__info-title {
     margin: 79px 0 22px 0;
   }
 
-  .techs-info__text {
+  .techs__info-text {
     font-size: 12px;
     line-height: 18px;
     letter-spacing: -0.48px;
@@ -118,13 +118,13 @@
     padding-bottom: 28px;
   }
 
-  .techs-info__title {
+  .techs__info-title {
     margin: 50px 0 12px 0;
     font-size: 30px;
     letter-spacing: -1.2px;
   }
 
-  .techs-info__text {
+  .techs__info-text {
     font-size: 11px;
     line-height: 16px;
     letter-spacing: -0.44px;

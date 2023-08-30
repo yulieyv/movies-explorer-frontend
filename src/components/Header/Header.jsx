@@ -16,7 +16,7 @@ const Header = ({ loggedIn }) => {
       pathname === '/profile' ? (
         <header
           className={`header ${
-            !loggedIn || pathname === '/' ? 'header__blue' : 'header__light'
+            !loggedIn || pathname === '/' ? 'header-blue' : 'header-light'
           }`}
         >
           <Link to="/" className="header__link">

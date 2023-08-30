@@ -4,10 +4,10 @@
   align-items: center;
   max-width: 520px;
   background-color: #fff;
-  padding: 25px 22px 90px;
-  position: absolute;
-  top: -18px;
-  right: -30px;
+  padding: 22px 22px 90px;
+  position: fixed;
+  top: 0;
+  right: 0;
   z-index: 2;
 }
 
@@ -40,7 +40,7 @@
   font-weight: 500;
   line-height: normal;
   text-decoration: none;
-  margin: 105px 0 594px 0;
+  margin: 106px 0 594px 0;
 }
 
 .burger-menu__item {
@@ -83,9 +83,8 @@
 
 @media screen and (max-width: 540px) {
   .burger-menu {
-    padding: 16px 15px 46px;
-    min-width: 290px;
-    right: -14px;
+    padding: 14px 14px 46px;
+    min-width: 292px;
   }
 
   .burger-menu__container {
@@ -93,7 +92,7 @@
   }
 
   .burger-menu__list {
-    margin: 101px 0 420px 0;
+    margin: 101px 0 419px 0;
   }
 
   .burger-menu__item {

@@ -26,7 +26,7 @@ const MoviesCard = ({ card }) => {
             ) : (
               <button
                 type="button"
-                className={`card__saved-button card__button${
+                className={`card__saved-button card__saved-button${
                   saved ? '_active' : '_inactive'
                 }`}
                 onClick={handleSavedToogle}

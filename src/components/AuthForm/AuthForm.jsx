@@ -10,20 +10,20 @@ function AuthForm(props) {
     <>
       <section className="auth">
         <form className="auth__form">
-          <Link to="/" className="auth__logo_link">
+          <Link to="/" className="auth__form-logo">
             <img
               className="auth__logo"
               src={logo}
               alt="Логотип Movies Explorer"
             />
           </Link>
-          <h2 className="auth__title">{props.title}</h2>
+          <h2 className="auth__form-title">{props.title}</h2>
           <label
             className={`${
-              pathname === '/sign-up' ? 'auth__item' : 'auth__item_invisible'
+              pathname === '/sign-up' ? 'auth__form-item' : 'auth__form-item auth__form-item_invisible'
             }`}
           >
-            <p className="auth__item-text">Имя</p>
+            <p className="auth__form-item-text">Имя</p>
             <input
               className="auth__input"
               onChange={props.onNameChange}
@@ -36,8 +36,8 @@ function AuthForm(props) {
               autoComplete="off"
             ></input>
           </label>
-          <label className="auth__item">
-            <p className="auth__item-text">E-mail</p>
+          <label className="auth__form-item">
+            <p className="auth__form-item-text">E-mail</p>
             <input
               className="auth__input"
               onChange={props.onEmailChange}
@@ -49,8 +49,8 @@ function AuthForm(props) {
               autoComplete="off"
             ></input>
           </label>
-          <label className="auth__item">
-            <p className="auth__item-text">Пароль</p>
+          <label className="auth__form-item">
+            <p className="auth__form-item-text">Пароль</p>
             <input
               className="auth__input"
               onChange={props.onPasswordChange}
@@ -75,9 +75,9 @@ function AuthForm(props) {
           </button>
 
           <div className="auth__sign">
-            <p className="auth__sign_title">
+            <p className="auth__sign-title">
               {props.question}
-              <Link className="auth__sign_link" to={props.path}>
+              <Link className="auth__sign-link" to={props.path}>
                 &nbsp; {props.answer}
               </Link>
             </p>

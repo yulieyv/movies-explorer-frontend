@@ -1,8 +1,8 @@
 function FilterCheckbox() {
   return (
     <>
-      <div className="search-form__tumbler">
-        <input type="checkbox" className="search-form__checkbox"></input>
+      <div className="filter-checkbox">
+        <input type="checkbox" className="filter-checkbox__input"></input>
       </div>
     </>
   );

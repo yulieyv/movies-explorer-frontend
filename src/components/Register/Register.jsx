@@ -9,7 +9,7 @@ function Register(props) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    props.onRegister(name.values, password.values, email.values);
+    props.onRegister();
   }
 
   return (
@@ -26,7 +26,7 @@ function Register(props) {
         action="Зарегистрироваться"
         question="Уже зарегистрированы?"
         answer="Войти"
-        path="/sign-in"
+        path="/signin"
       />
     </>
   );

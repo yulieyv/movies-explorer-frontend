@@ -3,9 +3,12 @@
   justify-content: center;
 }
 
+.profile__section {
+  width: 100%;
+}
+
 .profile__form {
   max-width: 410px;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,9 +29,9 @@
 .profile__item {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 5fr;
   border-bottom: 1px solid #e8e8e8;
-  margin-bottom: 16px;
+  margin-bottom: 17px;
 }
 
 .profile__item-text {
@@ -52,6 +55,11 @@
   font-weight: 400;
   line-height: normal;
   margin-bottom: 15px;
+}
+
+.profile__input:focus {
+  outline: 1px dashed #FF6838;
+  border-radius: 3px;
 }
 
 .profile__item:last-of-type {

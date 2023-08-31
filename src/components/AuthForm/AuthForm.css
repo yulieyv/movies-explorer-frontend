@@ -1,5 +1,5 @@
 .auth {
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,6 +17,10 @@
 .auth__logo {
   transition: opacity 0.2s linear;
   justify-self: start;
+}
+
+.auth__logo:hover {
+  opacity: .7;
 }
 
 .auth__form-title {
@@ -79,7 +83,7 @@
 }
 
 .auth__input:focus {
-  border: 1px solid #465DFF;
+  outline: 1px solid #465dff;
 }
 
 .auth__error {

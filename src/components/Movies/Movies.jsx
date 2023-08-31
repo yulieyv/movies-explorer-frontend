@@ -5,10 +5,10 @@ import cards from '../../utils/movies-cards';
 
 const Movies = () => {
   return (
-    <div className="movies">
+    <main className="movies">
       <SearchForm />
       <MoviesCardList cards={cards} buttonMore={true} />
-    </div>
+    </main>
   );
 };
 

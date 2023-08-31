@@ -8,36 +8,36 @@ function AuthForm(props) {
 
   return (
     <>
-      <section className="auth">
+      <main className="auth">
         <form className="auth__form">
           <Link to="/" className="auth__form-logo">
             <img
               className="auth__logo"
               src={logo}
-              alt="Логотип Movies Explorer"
+              alt="Иконка главной страницы"
             />
           </Link>
-          <h2 className="auth__form-title">{props.title}</h2>
-          <label
+          <h1 className="auth__form-title">{props.title}</h1>
+          <div
             className={`${
-              pathname === '/sign-up' ? 'auth__form-item' : 'auth__form-item auth__form-item_invisible'
+              pathname === '/signup' ? 'auth__form-item' : 'auth__form-item auth__form-item_invisible'
             }`}
           >
-            <p className="auth__form-item-text">Имя</p>
+            <label className="auth__form-item-text">Имя</label>
             <input
               className="auth__input"
               onChange={props.onNameChange}
               placeholder="Имя"
               name="name"
-              type="name"
+              type="text"
               value={props.name || ''}
               minLength={2}
               maxLength={30}
               autoComplete="off"
             ></input>
-          </label>
-          <label className="auth__form-item">
-            <p className="auth__form-item-text">E-mail</p>
+          </div>
+          <div className="auth__form-item">
+            <label className="auth__form-item-text">E-mail</label>
             <input
               className="auth__input"
               onChange={props.onEmailChange}
@@ -48,9 +48,9 @@ function AuthForm(props) {
               required
               autoComplete="off"
             ></input>
-          </label>
-          <label className="auth__form-item">
-            <p className="auth__form-item-text">Пароль</p>
+          </div>
+          <div className="auth__form-item">
+            <label className="auth__form-item-text">Пароль</label>
             <input
               className="auth__input"
               onChange={props.onPasswordChange}
@@ -58,14 +58,16 @@ function AuthForm(props) {
               name="password"
               type="password"
               value={props.password || ''}
+              minLength={8}
+              maxLength={64}
               required
               autoComplete="off"
             ></input>
             <span className="auth__error">Что-то пошло не так...</span>
-          </label>
+          </div>
           <button
             className={`auth__submit-button ${
-              pathname === '/sign-in' && 'auth__submit-button_signin'
+              pathname === '/signin' && 'auth__submit-button_signin'
             }`}
             type="submit"
             onSubmit={props.onSubmit}
@@ -83,7 +85,7 @@ function AuthForm(props) {
             </p>
           </div>
         </form>
-      </section>
+      </main>
     </>
   );
 }

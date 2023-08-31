@@ -1,9 +1,9 @@
 import './AboutMe.css';
-import avatar from '../../images/avatar.svg';
+import avatar from '../../images/avatar.png';
 
 function AboutMe() {
   return (
-    <section className="about-me">
+    <section className="about-me" id={"about-me"}>
       <h2 className="about-me__title">Студент</h2>
       <div className="about-me__container">
         <div className="about-me__info">
@@ -27,7 +27,7 @@ function AboutMe() {
           </a>
         </div>
 
-        <img src={avatar} alt="about-me" className="about-me__image" />
+        <img src={avatar} alt="Фото автора проекта" className="about-me__image" />
       </div>
     </section>
   );

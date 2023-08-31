@@ -1,8 +1,8 @@
-import './AboutProject.css';
+import "./AboutProject.css";
 
 function AboutProject() {
   return (
-    <section className="about-project">
+    <section className="about-project" id={"about-project"}>
       <h2 className="about-project__title">О проекте</h2>
       <div className="about-project__container">
         <div className="about-project__info">
@@ -32,11 +32,12 @@ function AboutProject() {
         </div>
 
         <div className="about-project__timeline">
-          <h4 className="about-project__timeline-title about-project__timeline-title_light">4 недели</h4>
+          <h4 className="about-project__timeline-title about-project__timeline-title_light">
+            4 недели
+          </h4>
           <p className="about-project__timeline-text">Front-end</p>
         </div>
       </div>
-
     </section>
   );
 }

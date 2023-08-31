@@ -23,7 +23,7 @@ const Header = ({ loggedIn }) => {
             <img
               className="header__logo"
               src={logo}
-              alt="Логотип Movies Explorer"
+              alt="Иконка главной страницы"
             />
           </Link>
           {loggedIn ? <Navigation /> : <NavAuth />}

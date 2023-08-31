@@ -1,5 +1,5 @@
-import './BurgerMenu.css';
-import { Link, NavLink } from 'react-router-dom';
+import "./BurgerMenu.css";
+import { Link, NavLink } from "react-router-dom";
 
 function BurgerMenu({ handleCloseMenu }) {
   return (
@@ -11,8 +11,12 @@ function BurgerMenu({ handleCloseMenu }) {
           onClick={handleCloseMenu}
         ></button>
         <ul className="burger-menu__list">
-          <li className="burger-menu__item burger-menu__item_type_main">
-            <Link to="/" className="burger-menu__link">
+          <li className="burger-menu__item">
+            <Link
+              to="/"
+              className={`burger-menu__link ${({ isActive }) =>
+                isActive && "active"}`}
+            >
               Главная
             </Link>
           </li>
@@ -20,7 +24,7 @@ function BurgerMenu({ handleCloseMenu }) {
             <NavLink
               to="/movies"
               className={`burger-menu__link ${({ isActive }) =>
-                isActive && 'active'}`}
+                isActive && "active"}`}
             >
               Фильмы
             </NavLink>
@@ -29,19 +33,19 @@ function BurgerMenu({ handleCloseMenu }) {
             <NavLink
               to="/saved-movies"
               className={`burger-menu__link ${({ isActive }) =>
-                isActive && 'active'}`}
+                isActive && "active"}`}
             >
               Сохранённые фильмы
             </NavLink>
           </li>
         </ul>
+        <NavLink
+          to="/profile"
+          className="burger-menu__link burger-menu__link_type_profile"
+        >
+          Аккаунт
+        </NavLink>
       </div>
-      <NavLink
-        to="/profile"
-        className="burger-menu__link burger-menu__link_type_profile"
-      >
-        Аккаунт
-      </NavLink>
     </div>
   );
 }

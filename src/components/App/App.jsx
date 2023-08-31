@@ -12,11 +12,11 @@ import Profile from '../Profile/Profile';
 import PageNotFound from '../PageNotFound/PageNotFound';
 
 function App() {
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [loggedIn, setLoggedIn] = React.useState(true);
   const navigate = useNavigate();
 
   function handleRegisterSubmit() {
-    navigate("/sign-in");
+    navigate("/signin");
   }
 
   function handleLoginSubmit() {
@@ -36,11 +36,11 @@ function App() {
         <Route path="/movies" element={<Movies />} />
         <Route path="/saved-movies" element={<SavedMovies />}></Route>
         <Route
-          path="/sign-up"
+          path="/signup"
           element={<Register onRegister={handleRegisterSubmit} />}
         ></Route>
         <Route
-          path="/sign-in"
+          path="/signin"
           element={<Login onSubmit={handleLoginSubmit} />}
           onClick={handleLoginSubmit}
         ></Route>

@@ -5,7 +5,7 @@
   padding: 245px 0 60px;
   box-sizing: border-box;
   text-align: center;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
 .not-found__container {
@@ -30,11 +30,20 @@
   color: #ff6838;
   font-size: 14px;
   text-decoration: none;
+  transition: opacity 0.2s linear;
+}
+
+.not-found__link:hover {
+  opacity: 0.7;
 }
 
 @media screen and (max-width: 768px) {
   .not-found {
     padding-top: 408px;
+  }
+
+  .not-found__subtitle {
+    margin-bottom: 184px;
   }
 }
 
@@ -49,7 +58,7 @@
 
   .not-found__subtitle {
     font-size: 12px;
-    margin: 10px 0 286px;
+    margin: 10px 0 283px;
   }
 
   .not-found__link {

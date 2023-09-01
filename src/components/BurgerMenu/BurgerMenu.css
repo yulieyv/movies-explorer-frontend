@@ -34,7 +34,7 @@
 }
 
 .burger-menu__close-button {
-  opacity: 0.7;
+  opacity: .7;
   cursor: pointer;
 }
 

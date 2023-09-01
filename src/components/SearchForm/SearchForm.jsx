@@ -5,7 +5,7 @@ import searchLogo from '../../images/search-logo.svg';
 function SearchForm() {
   return (
     <section className="search-form">
-      <div className="search-form__container">
+      <form className="search-form__container">
         <input
           className="search-form__input"
           placeholder="Фильм"
@@ -19,11 +19,11 @@ function SearchForm() {
             alt="Логотип поиска: лупа"
           />
         </button>
-      </div>
-      <div className="search-form__toggle">
+      </form>
+      <form className="search-form__toggle">
         <FilterCheckbox />
         <p className="search-form__short-films">Короткометражки</p>
-      </div>
+      </form>
     </section>
   );
 }

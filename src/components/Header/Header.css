@@ -1,0 +1,45 @@
+.header {
+  max-width: 1280px;
+  width: 100%;
+  height: 74px;
+  padding: 11px 70px;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.header-blue {
+  background-color: #465dff;
+}
+
+.header-light {
+  background-color: #FFF;
+}
+
+.header__link {
+  display: flex;
+}
+
+.header__logo {
+  transition: opacity 0.2s linear;
+}
+
+.header__logo:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 18px 30px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .header {
+    padding: 18px 14px;
+  }
+}

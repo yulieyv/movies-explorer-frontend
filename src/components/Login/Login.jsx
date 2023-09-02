@@ -1,26 +1,24 @@
 import React from "react";
 import AuthForm from "../AuthForm/AuthForm";
-import useForm from "../../hooks/useForm";
+import useFormWithValidation from "../../hooks/useFormWithValidation";
 
 function Login(props) {
-  const name = useForm("");
-  const email = useForm("");
-  const password = useForm("");
+  const { values, handleChange, errors, isValid } = useFormWithValidation();
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    props.onRegister();
+    props.onLogin(values);
   }
-
   return (
     <>
       <AuthForm
-        onNameChange={name.handleChange}
-        onEmailChange={email.handleChange}
-        onPasswordChange={password.handleChange}
+        onEmailChange={handleChange}
+        onPasswordChange={handleChange}
         onSubmit={handleSubmit}
-        email={email.values}
-        password={password.values}
+        email={values.email}
+        password={values.password}
+        error={errors.email || errors.password}
+        isValid={isValid}
         title="Рады видеть!"
         action="Войти"
         question="Ещё не зарегистрированы?"

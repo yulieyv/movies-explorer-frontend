@@ -10,7 +10,7 @@ function AuthForm(props) {
     <>
       <main className="auth">
         <section className="auth__section">
-          <form className="auth__form">
+          <form className="auth__form" onSubmit={props.onSubmit}>
             <Link to="/" className="auth__form-logo">
               <img
                 className="auth__logo"
@@ -19,26 +19,7 @@ function AuthForm(props) {
               />
             </Link>
             <h1 className="auth__form-title">{props.title}</h1>
-            <div
-              className={`${
-                pathname === "/signup"
-                  ? "auth__form-item"
-                  : "auth__form-item auth__form-item_invisible"
-              }`}
-            >
-              <label className="auth__form-item-text">Имя</label>
-              <input
-                className="auth__input"
-                onChange={props.onNameChange}
-                placeholder="Имя"
-                name="name"
-                type="text"
-                value={props.name || ""}
-                minLength={2}
-                maxLength={30}
-                autoComplete="off"
-              ></input>
-            </div>
+            {props.nameInput}
             <div className="auth__form-item">
               <label className="auth__form-item-text">E-mail</label>
               <input
@@ -66,15 +47,13 @@ function AuthForm(props) {
                 required
                 autoComplete="off"
               ></input>
-              <span className="auth__error">Что-то пошло не так...</span>
+              <span className="auth__error">{props.error}</span>
             </div>
             <button
               className={`auth__submit-button ${
                 pathname === "/signin" && "auth__submit-button_signin"
-              }`}
+              } ${props.isValid ? "" : "auth__submit-button_disabled"}`}
               type="submit"
-              onSubmit={props.onSubmit}
-              onClick={props.onClick}
             >
               {props.action}
             </button>

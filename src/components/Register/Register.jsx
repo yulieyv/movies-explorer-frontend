@@ -1,27 +1,52 @@
-import React from 'react';
-import AuthForm from '../AuthForm/AuthForm';
-import useForm from '../../hooks/useForm';
+import React from "react";
+import { useLocation } from "react-router-dom";
+import AuthForm from "../AuthForm/AuthForm";
+import useFormWithValidation from "../../hooks/useFormWithValidation";
 
 function Register(props) {
-  const name = useForm('');
-  const email = useForm('');
-  const password = useForm('');
+  const { pathname } = useLocation();
+  const { values, handleChange, errors, isValid } = useFormWithValidation();
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    props.onRegister();
+    props.onRegister(values);
   }
 
   return (
     <>
       <AuthForm
-        onNameChange={name.handleChange}
-        onEmailChange={email.handleChange}
-        onPasswordChange={password.handleChange}
+        nameInput={
+          <>
+            <div
+              className={`${
+                pathname === "/signup"
+                  ? "auth__form-item"
+                  : "auth__form-item auth__form-item_invisible"
+              }`}
+            >
+              <label className="auth__form-item-text">Имя</label>
+              <input
+                className="auth__input"
+                onChange={handleChange}
+                placeholder="Имя"
+                name="name"
+                type="text"
+                value={values.name || ""}
+                minLength={2}
+                maxLength={30}
+                required
+                autoComplete="off"
+              ></input>
+            </div>
+          </>
+        }
+        onEmailChange={handleChange}
+        onPasswordChange={handleChange}
         onSubmit={handleSubmit}
-        name={name.values}
-        email={email.values}
-        password={password.values}
+        email={values.email}
+        password={values.password}
+        error={errors.name || errors.email || errors.password}
+        isValid={isValid}
         title="Добро пожаловать!"
         action="Зарегистрироваться"
         question="Уже зарегистрированы?"

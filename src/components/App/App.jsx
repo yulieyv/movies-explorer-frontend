@@ -90,13 +90,26 @@ function App() {
         navigate("/movies", { replace: true });
       })
       .catch((err) => {
-        console.log('ошибка')
         setIsOpenPopup(true);
         setStatus("Что-то пошло не так! Попробуйте ещё раз.");
         if (err.status === 400) {
           console.log("400 - некорректно заполнено одно из полей");
         }
         console.log("401 - пользователь с email не найден", `Ошибка: ${err}`);
+      });
+  }
+
+  function handleUpdateUser({ name, email }) {
+    mainApi
+      .updateUserInfo({ name, email })
+      .then((data) => {
+        setCurrentUser(data);
+        setIsOpenPopup(true);
+        setStatus("Данные успешно изменены!");
+      })
+      .catch((err) => {
+        setIsOpenPopup(true);
+        setStatus(`Что-то пошло не так! ${err}`);
       });
   }
 
@@ -156,6 +169,8 @@ function App() {
               <ProtectedRoute
                 element={Profile}
                 loggedIn={loggedIn}
+                onOpenPopup={setIsOpenPopup}
+                onUpdateUser={handleUpdateUser}
                 onSignOut={handleSignOutSubmit}
               />
             }

@@ -14,7 +14,7 @@ class MoviesApi {
   }
 
   getMovies() {
-    return fetch(BASE_URL, {
+    return this._requestUrl(this._baseUrl, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

@@ -87,7 +87,7 @@ class MainApi {
   }
 
   postSavedMovie(data) {
-    return this._requestUrl(`${this._baseUrl}/saved-movies`, {
+    return this._requestUrl(`${this._baseUrl}/movies`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
@@ -111,6 +111,7 @@ class MainApi {
   }
 
   deleteSavedMovie(movieId) {
+    console.log(movieId);
     return this._requestUrl(`${this._baseUrl}/saved-movies/${movieId}`, {
       method: "DELETE",
       headers: {

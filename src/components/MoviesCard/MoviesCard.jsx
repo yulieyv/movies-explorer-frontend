@@ -1,43 +1,66 @@
-import './MoviesCard.css';
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import "./MoviesCard.css";
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 
-const MoviesCard = ({ card }) => {
-  const [saved, setSaved] = React.useState(false);
+function MoviesCard({ card, onMovieSave, onMovieDelete, saved, savedMovies }) {
+  const { pathname } = useLocation();
+  const [savedStatus, setSavedStatus] = useState(false);
 
-  function handleSavedToogle() {
-    setSaved(!saved);
+  function handleMovieSave() {
+    if (saved) {
+      onMovieDelete(
+        savedMovies.filter((movie) => movie.movieId === card.id)[0]
+      );
+    } else {
+      onMovieSave(card);
+      setSavedStatus(true);
+    }
   }
 
-  const { pathname } = useLocation();
+  function handleMovieDelete() {
+    onMovieDelete(card);
+  }
+
+  function getDurationTime(duration) {
+    const hour = Math.floor(duration / 60);
+    const min = duration % 60;
+    return `${hour}ч ${min}м`;
+  }
 
   return (
     <li className="card">
-      <img src={card.image} alt={card.title} className="card__image" />
+      <img
+        src={
+          saved ? card.image : `https://api.nomoreparties.co/${card.image.url}`
+        }
+        alt={card.title}
+        className="card__image"
+      />
       <div className="card__container">
         <div className="card__element">
-          <h2 className="card__title">{card.title}</h2>
+          <h2 className="card__title">{card.nameRU || card.nameEN}</h2>
           <div className="card__buttons">
-            {pathname === '/saved-movies' ? (
+            {pathname === "/saved-movies" ? (
               <button
                 type="button"
                 className="card__saved-button card__saved-button_delete"
+                onClick={handleMovieDelete}
               />
             ) : (
               <button
                 type="button"
                 className={`card__saved-button card__saved-button${
-                  saved ? '_active' : '_inactive'
+                  savedStatus ? "_active" : "_inactive"
                 }`}
-                onClick={handleSavedToogle}
+                onClick={handleMovieSave}
               />
             )}
           </div>
         </div>
-        <p className="card__duration">{card.duration}</p>
+        <p className="card__duration">{getDurationTime(card.duration)}</p>
       </div>
     </li>
   );
-};
+}
 
 export default MoviesCard;

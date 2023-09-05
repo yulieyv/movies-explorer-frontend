@@ -33,7 +33,7 @@ function App() {
         .then((res) => {
           if (res) {
             setLoggedIn(true);
-            localStorage.removeItem("allMovies");
+            localStorage.removeItem("movies");
             navigate(path, { replace: true });
           } else {
             setLoggedIn(false);
@@ -72,7 +72,7 @@ function App() {
       .then((res) => {
         setIsOpenPopup(true);
         setStatus("Вы успешно зарегистрировались!");
-        navigate("/signin", { replace: true });
+        handleLoginSubmit(email, password);
       })
       .catch(() => {
         setIsOpenPopup(true);
@@ -113,11 +113,39 @@ function App() {
       });
   }
 
+  function handleMovieLike(card) {
+    mainApi
+      .postSavedMovie(card)
+      .then((newMovie) => {
+        setSavedMovies([newMovie, ...savedMovies]);
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log(card);
+      });
+  }
+
+  function handleMovieDelete(card) {
+    mainApi
+      .deleteSavedMovie(card._id)
+      .then(() => {
+        setSavedMovies((state) =>
+          state.filter((item) => item._id !== card._id)
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   function handleSignOutSubmit() {
     localStorage.removeItem("jwt");
+    localStorage.removeItem("movies");
+    localStorage.removeItem("movieSearch");
+    localStorage.removeItem("shortMovies");
     localStorage.removeItem("allMovies");
     setLoggedIn(false);
-    navigate("/signin");
+    navigate("/");
   }
 
   function closePopup() {
@@ -137,6 +165,8 @@ function App() {
                 element={Movies}
                 loggedIn={loggedIn}
                 savedMovies={savedMovies}
+                onMovieDelete={handleMovieDelete}
+                handleMovieLike={handleMovieLike}
               />
             }
           />
@@ -147,6 +177,7 @@ function App() {
                 element={SavedMovies}
                 loggedIn={loggedIn}
                 savedMovies={savedMovies}
+                onMovieDelete={handleMovieDelete}
               />
             }
           ></Route>

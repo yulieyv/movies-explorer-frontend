@@ -1,10 +1,15 @@
 import "./FilterCheckbox.css";
 
-function FilterCheckbox() {
+function FilterCheckbox({ onMoviesFilter, isShortMovies }) {
   return (
     <>
       <div className="filter-checkbox">
-        <input type="checkbox" className="filter-checkbox__input"></input>
+        <input
+          type="checkbox"
+          className="filter-checkbox__input"
+          onChange={onMoviesFilter}
+          checked={isShortMovies}
+        ></input>
       </div>
     </>
   );

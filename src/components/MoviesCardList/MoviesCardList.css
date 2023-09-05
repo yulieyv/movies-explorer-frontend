@@ -4,6 +4,15 @@
   min-height: 318px;
 }
 
+.movies-cards__search-error {
+  color: #ee3465;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+}
+
 .movies-cards__list {
   display: grid;
   justify-content: center;
@@ -53,14 +62,13 @@
     grid-template-columns: repeat(auto-fill, minmax(339px, 1fr));
     gap: 36px 30px;
   }
-  
 }
 
 @media screen and (max-width: 540px) {
   .movies-cards {
     padding: 40px 10px 0;
   }
-  
+
   .movies-cards__list {
     grid-template-columns: repeat(auto-fill, minmax(339px, 1fr));
     row-gap: 20px;

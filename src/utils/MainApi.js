@@ -111,8 +111,7 @@ class MainApi {
   }
 
   deleteSavedMovie(movieId) {
-    console.log(movieId);
-    return this._requestUrl(`${this._baseUrl}/saved-movies/${movieId}`, {
+    return this._requestUrl(`${this._baseUrl}/movies/${movieId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,

@@ -2,18 +2,26 @@ import "./MoviesCard.css";
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 
-function MoviesCard({ card, onMovieSave, onMovieDelete, saved, savedMovies }) {
+function MoviesCard({
+  card,
+  isSavedMovies,
+  onMovieSave,
+  onMovieDelete,
+  isSaved,
+  savedMovies,
+}) {
   const { pathname } = useLocation();
-  const [savedStatus, setSavedStatus] = useState(false);
+  const [status, setStatus] = useState(false);
 
   function handleMovieSave() {
-    if (saved) {
-      onMovieDelete(
-        savedMovies.filter((movie) => movie.movieId === card.id)[0]
-      );
+    console.log(`ВОТ ТУТ ${isSaved}`);
+    console.log(card.id);
+    if (isSaved) {
+      onMovieDelete(savedMovies.filter((m) => m.movieId === card.id)[0]);
+      setStatus(false);
     } else {
       onMovieSave(card);
-      setSavedStatus(true);
+      setStatus(true);
     }
   }
 
@@ -31,9 +39,11 @@ function MoviesCard({ card, onMovieSave, onMovieDelete, saved, savedMovies }) {
     <li className="card">
       <img
         src={
-          saved ? card.image : `https://api.nomoreparties.co/${card.image.url}`
+          isSavedMovies
+            ? card.image
+            : `https://api.nomoreparties.co/${card.image.url}`
         }
-        alt={card.title}
+        alt={card.nameRU}
         className="card__image"
       />
       <div className="card__container">
@@ -50,7 +60,7 @@ function MoviesCard({ card, onMovieSave, onMovieDelete, saved, savedMovies }) {
               <button
                 type="button"
                 className={`card__saved-button card__saved-button${
-                  savedStatus ? "_active" : "_inactive"
+                  status ? "_active" : "_inactive"
                 }`}
                 onClick={handleMovieSave}
               />

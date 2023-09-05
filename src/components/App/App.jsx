@@ -58,7 +58,7 @@ function App() {
       mainApi
         .getSavedMovies()
         .then((movies) => {
-          setSavedMovies(movies.reverse());
+          setSavedMovies(movies);
         })
         .catch((err) => {
           console.log(err);

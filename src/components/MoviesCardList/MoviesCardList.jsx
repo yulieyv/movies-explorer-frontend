@@ -7,13 +7,13 @@ import {
   CARDS_SIZES_TABLET,
   CARDS_SIZES_MOBILE,
 } from "../../utils/constants";
-import savedMovies from "../../utils/savedMovies";
 
 const MoviesCardList = ({
   cards,
   buttonMore,
   onMovieSave,
   onMovieDelete,
+  savedMovies,
   isLoading,
   isSavedMovies,
   isError,
@@ -55,8 +55,8 @@ const MoviesCardList = ({
     }, 1000);
   });
 
-  function handleSavedStatus(movie, card) {
-    return savedMovies.find((movie) => movie.movieId === card.id);
+  function handleSavedStatus(savedMovies, card) {
+    return savedMovies.find((savedMovies) => savedMovies.movieId === card.id);
   }
 
   return (
@@ -75,10 +75,10 @@ const MoviesCardList = ({
       {!isLoading && !isError && !isNotFound && (
         <>
           <ul className="movies-cards__list">
-            {cards.slice(0, shownMovies).map((card) => (
+            {cards.map((card) => (
               <MoviesCard
                 key={card.id || card.movieId}
-                saved={handleSavedStatus(savedMovies, card)}
+                isSaved={handleSavedStatus(savedMovies, card)}
                 card={card}
                 cards={cards}
                 onMovieSave={onMovieSave}
@@ -88,7 +88,7 @@ const MoviesCardList = ({
               />
             ))}
           </ul>
-          {cards.length > shownMovies ? (
+          {cards.length > shownMovies && (
             <div className="movies-cards__button-container">
               {buttonMore && (
                 <button
@@ -101,8 +101,6 @@ const MoviesCardList = ({
                 </button>
               )}
             </div>
-          ) : (
-            ""
           )}
         </>
       )}

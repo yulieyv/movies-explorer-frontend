@@ -4,7 +4,7 @@ import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import { moviesApi } from "../../utils/MoviesApi";
 
-function Movies({ handleMovieLike, savedMovies, onDeleteCard }) {
+function Movies({ handleMovieLike, savedMovies, onMovieDelete }) {
   const [isLoading, setIsLoading] = useState(false);
   const [initialMovies, setInitialMovies] = useState([]);
   const [foundedMovies, setFoundedMovies] = useState([]);
@@ -90,8 +90,6 @@ function Movies({ handleMovieLike, savedMovies, onDeleteCard }) {
       } else {
         setFoundedMovies(movies);
       }
-    } else {
-      // setIsNotFound(true);
     }
   }, []);
 
@@ -122,7 +120,7 @@ function Movies({ handleMovieLike, savedMovies, onDeleteCard }) {
         isError={isError}
         isNotFound={isNotFound}
         onMovieSave={handleMovieLike}
-        onDeleteCard={onDeleteCard}
+        onMovieDelete={onMovieDelete}
         buttonMore={true}
       />
     </main>

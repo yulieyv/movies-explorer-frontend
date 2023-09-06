@@ -14,7 +14,7 @@ class MainApi {
     return Promise.reject(`Ошибка ${res.status} ${res.statusText}`);
   }
 
-  register({ name, email, password }) {
+  register(name, email, password) {
     return this._requestUrl(`${this._baseUrl}/signup`, {
       method: "POST",
       headers: {
@@ -25,7 +25,7 @@ class MainApi {
     });
   }
 
-  login({ email, password }) {
+  login(email, password) {
     return this._requestUrl(`${this._baseUrl}/signin`, {
       method: "POST",
       headers: {

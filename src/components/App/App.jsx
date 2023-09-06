@@ -66,22 +66,23 @@ function App() {
     }
   }, [loggedIn]);
 
-  function handleRegisterSubmit(name, email, password) {
+  function handleRegisterSubmit({ name, email, password }) {
     mainApi
       .register(name, email, password)
       .then(() => {
         setIsOpenPopup(true);
         setStatus("Вы успешно зарегистрировались!");
-        handleLoginSubmit(email, password);
+        handleLoginSubmit({ email, password });
       })
       .catch(() => {
+        console.log(name, email, password);
         setIsOpenPopup(true);
         setStatus("Что-то пошло не так! Попробуйте ещё раз.");
         console.log("Некорректно заполнено одно из полей");
       });
   }
 
-  function handleLoginSubmit(email, password) {
+  function handleLoginSubmit({ email, password }) {
     mainApi
       .login(email, password)
       .then((res) => {

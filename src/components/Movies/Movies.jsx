@@ -32,7 +32,8 @@ function Movies({ handleMovieLike, onMovieDelete, savedMovies }) {
 
   function handleSearchSubmit(movies, searchName, isShort) {
     const moviesList = handleFilterMovies(movies, searchName);
-    moviesList.length === 0 ? setIsError(true) : setInitialMovies(moviesList);
+    moviesList.length === 0 ? setIsNotFound(true) : setIsNotFound(false);
+    setInitialMovies(moviesList);
     setFoundShortMovies(
       isShort ? handleFilterMoviesDuration(moviesList) : moviesList
     );
@@ -60,15 +61,15 @@ function Movies({ handleMovieLike, onMovieDelete, savedMovies }) {
     localStorage.setItem("movieSearch", search);
     localStorage.setItem("shortMoviesCheckbox", isShortMovies);
 
-    if (localStorage.getItem("movies") === 0) {
+    if (localStorage.getItem("movies") !== 0) {
+      setIsLoading(true);
+      handleGetMovies(search);
+    } else {
       handleSearchSubmit(
         JSON.parse(localStorage.getItem("movies")),
         search,
         isShortMovies
       );
-    } else {
-      setIsLoading(true);
-      handleGetMovies(search);
     }
   }
 
@@ -91,12 +92,6 @@ function Movies({ handleMovieLike, onMovieDelete, savedMovies }) {
   }
 
   useEffect(() => {
-    localStorage.getItem("shortMoviesCheckbox") === "true"
-      ? setIsShortMovies(true)
-      : setIsShortMovies(false);
-  }, []);
-
-  useEffect(() => {
     if (localStorage.getItem("moviesList")) {
       const movies = JSON.parse(localStorage.getItem("moviesList"));
       setInitialMovies(movies);
@@ -104,6 +99,10 @@ function Movies({ handleMovieLike, onMovieDelete, savedMovies }) {
         ? setFoundShortMovies(handleFilterMoviesDuration(movies))
         : setFoundShortMovies(movies);
     }
+
+    localStorage.getItem("shortMoviesCheckbox") === "true"
+      ? setIsShortMovies(true)
+      : setIsShortMovies(false);
   }, []);
 
   return (

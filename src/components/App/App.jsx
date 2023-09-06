@@ -69,7 +69,7 @@ function App() {
   function handleRegisterSubmit(name, email, password) {
     mainApi
       .register(name, email, password)
-      .then((res) => {
+      .then(() => {
         setIsOpenPopup(true);
         setStatus("Вы успешно зарегистрировались!");
         handleLoginSubmit(email, password);

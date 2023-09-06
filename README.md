@@ -7,6 +7,8 @@ Frontend сервиса, в котором можно найти фильмы п
 - Backend:
 	- Repository: **https://github.com/yulieyv/movies-explorer-api/**
 	- Website: **https://api.yamalieva.diploma.nomoreparties.co**
+
+Ссылка на Pull requests: **https://github.com/yulieyv/movies-explorer-frontend/pull/2**
   
 ## Макет проекта в Figma
   

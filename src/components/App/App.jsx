@@ -53,15 +53,15 @@ function App() {
           setCurrentUser(data);
         })
         .catch((err) => {
-          console.log(err);
+          console.log(`Ошибка: ${err}`);
         });
       mainApi
         .getSavedMovies()
         .then((movies) => {
-          setSavedMovies(movies);
+          setSavedMovies(movies.reverse());
         })
         .catch((err) => {
-          console.log(err);
+          console.log(`Ошибка: ${err}`);
         });
     }
   }, [loggedIn]);
@@ -109,19 +109,18 @@ function App() {
       })
       .catch((err) => {
         setIsOpenPopup(true);
-        setStatus(`Что-то пошло не так! ${err}`);
+        setStatus("Что-то пошло не так! Попробуйте ещё раз.");
       });
   }
 
   function handleMovieLike(card) {
     mainApi
       .postSavedMovie(card)
-      .then((newMovie) => {
-        setSavedMovies([newMovie, ...savedMovies]);
+      .then((movie) => {
+        setSavedMovies([movie, ...savedMovies]);
       })
       .catch((err) => {
-        console.log(err);
-        console.log(card);
+        console.log(`Ошибка: ${err}`);
       });
   }
 
@@ -129,21 +128,21 @@ function App() {
     mainApi
       .deleteSavedMovie(card._id)
       .then(() => {
-        setSavedMovies((state) =>
-          state.filter((item) => item._id !== card._id)
+        setSavedMovies((movies) =>
+          movies.filter((item) => item._id !== card._id)
         );
       })
       .catch((err) => {
-        console.log(err);
+        console.log(`Ошибка: ${err}`);
       });
   }
 
   function handleSignOutSubmit() {
     localStorage.removeItem("jwt");
-    localStorage.removeItem("movies");
+    localStorage.removeItem("moviesList");
     localStorage.removeItem("movieSearch");
     localStorage.removeItem("shortMovies");
-    localStorage.removeItem("allMovies");
+    localStorage.removeItem("movies");
     setLoggedIn(false);
     navigate("/");
   }

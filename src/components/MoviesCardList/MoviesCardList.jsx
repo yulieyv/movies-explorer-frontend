@@ -19,21 +19,20 @@ const MoviesCardList = ({
   isError,
   isNotFound,
 }) => {
-  const [shownMovies, setShownMovies] = useState([]);
-
-  function handleResizeDesktop() {
-    if (window.innerWidth >= 1280) {
-      setShownMovies(16);
-    } else if (window.innerWidth < 1280 && window.innerWidth >= 1024) {
-      setShownMovies(12);
-    } else if (window.innerWidth < 1024 && window.innerWidth >= 768) {
-      setShownMovies(8);
-    } else {
-      setShownMovies(5);
-    }
-  }
+  const [shownMovies, setShownMovies] = useState(0);
 
   useEffect(() => {
+    const handleResizeDesktop = () => {
+      if (window.innerWidth >= 1280) {
+        setShownMovies(16);
+      } else if (window.innerWidth < 1280 && window.innerWidth >= 1024) {
+        setShownMovies(12);
+      } else if (window.innerWidth < 1024 && window.innerWidth >= 768) {
+        setShownMovies(8);
+      } else {
+        setShownMovies(5);
+      }
+    };
     handleResizeDesktop();
   }, []);
 
@@ -49,14 +48,10 @@ const MoviesCardList = ({
     }
   }
 
-  useEffect(() => {
-    setTimeout(() => {
-      window.addEventListener("resize", handleResizeDesktop);
-    }, 1000);
-  });
-
   function handleSavedStatus(savedMovies, card) {
-    return savedMovies.find((savedMovies) => savedMovies.movieId === card.id);
+    return savedMovies.find(
+      (savedMovies) => savedMovies.movieId === (card.id || card.movieId)
+    );
   }
 
   return (
@@ -75,7 +70,7 @@ const MoviesCardList = ({
       {!isLoading && !isError && !isNotFound && (
         <>
           <ul className="movies-cards__list">
-            {cards.map((card) => (
+            {cards.slice(0, shownMovies).map((card) => (
               <MoviesCard
                 key={card.id || card.movieId}
                 isSaved={handleSavedStatus(savedMovies, card)}

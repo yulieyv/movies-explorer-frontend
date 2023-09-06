@@ -1,5 +1,5 @@
 import "./MoviesCard.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 function MoviesCard({
@@ -13,15 +13,23 @@ function MoviesCard({
   const { pathname } = useLocation();
   const [status, setStatus] = useState(false);
 
-  function handleMovieSave() {
-    console.log(`ВОТ ТУТ ${isSaved}`);
-    console.log(card.id);
-    if (isSaved) {
-      onMovieDelete(savedMovies.filter((m) => m.movieId === card.id)[0]);
-      setStatus(false);
-    } else {
-      onMovieSave(card);
+  useEffect(() => {
+    if (savedMovies.some((movie) => movie.movieId === card.id)) {
       setStatus(true);
+    }
+  }, [savedMovies, card.id]);
+
+  function handleMovieSave() {
+    if (isSaved) {
+      setStatus(false);
+      onMovieDelete(
+        savedMovies.find(
+          (movie) => movie.movieId === card.id || movie.movieId === card.movieId
+        )
+      );
+    } else {
+      setStatus(true);
+      onMovieSave(card);
     }
   }
 
@@ -30,22 +38,23 @@ function MoviesCard({
   }
 
   function getDurationTime(duration) {
-    const hour = Math.floor(duration / 60);
-    const min = duration % 60;
-    return `${hour}ч ${min}м`;
+    return `${Math.floor(duration / 60)}ч ${duration % 60}м`;
   }
 
   return (
     <li className="card">
-      <img
-        src={
-          isSavedMovies
-            ? card.image
-            : `https://api.nomoreparties.co/${card.image.url}`
-        }
-        alt={card.nameRU}
-        className="card__image"
-      />
+      <a href={card.trailerLink} target="_blank" rel="noreferrer">
+        <img
+          src={
+            isSavedMovies
+              ? card.image
+              : `https://api.nomoreparties.co/${card.image.url}`
+          }
+          alt={card.nameRU}
+          className="card__image"
+        />
+      </a>
+
       <div className="card__container">
         <div className="card__element">
           <h2 className="card__title">{card.nameRU || card.nameEN}</h2>

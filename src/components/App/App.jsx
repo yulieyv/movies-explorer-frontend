@@ -14,6 +14,18 @@ import Profile from "../Profile/Profile";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import Popup from "../Popup/Popup";
 import { mainApi } from "../../utils/MainApi";
+import {
+  UNAUTHORIZED_ERROR,
+  BAG_REQUEST_ERROR,
+  UNAUTHORIZED_LOGIN,
+  BAG_REQUEST_LOGIN,
+  CONFLICT_ERROR,
+  OK_STATUS_PROFILE,
+  OK_STATUS_REGISTER,
+  CONFLICT_REGISTER,
+  INTERNAL_SERVER,
+  INTERNAL_SERVER_ERROR,
+} from "../../utils/constants";
 
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -33,11 +45,11 @@ function App() {
         .then((res) => {
           if (res) {
             setLoggedIn(true);
-            localStorage.removeItem("movies");
-            navigate(path, { replace: true });
+            //localStorage.removeItem("movies");
           } else {
             setLoggedIn(false);
           }
+          navigate(path);
         })
         .catch((err) => {
           console.log(`Ошибка: ${err}`);
@@ -71,14 +83,14 @@ function App() {
       .register(name, email, password)
       .then(() => {
         setIsOpenPopup(true);
-        setStatus("Вы успешно зарегистрировались!");
+        setStatus(OK_STATUS_REGISTER);
         handleLoginSubmit({ email, password });
       })
-      .catch(() => {
-        console.log(name, email, password);
+      .catch((err) => {
         setIsOpenPopup(true);
-        setStatus("Что-то пошло не так! Попробуйте ещё раз.");
-        console.log("Некорректно заполнено одно из полей");
+        err.status === BAG_REQUEST_ERROR && setStatus(UNAUTHORIZED_LOGIN);
+        err === CONFLICT_ERROR && setStatus(CONFLICT_REGISTER);
+        console.log(`Ошибка: ${err}`);
       });
   }
 
@@ -92,11 +104,9 @@ function App() {
       })
       .catch((err) => {
         setIsOpenPopup(true);
-        setStatus("Что-то пошло не так! Попробуйте ещё раз.");
-        if (err.status === 400) {
-          console.log("400 - некорректно заполнено одно из полей");
-        }
-        console.log("401 - пользователь с email не найден", `Ошибка: ${err}`);
+        err === UNAUTHORIZED_ERROR && setStatus(UNAUTHORIZED_LOGIN);
+        err === BAG_REQUEST_ERROR && setStatus(BAG_REQUEST_LOGIN);
+        console.log(`Ошибка: ${err}`);
       });
   }
 
@@ -106,11 +116,12 @@ function App() {
       .then((data) => {
         setCurrentUser(data);
         setIsOpenPopup(true);
-        setStatus("Данные успешно изменены!");
+        setStatus(OK_STATUS_PROFILE);
       })
       .catch((err) => {
         setIsOpenPopup(true);
-        setStatus("Что-то пошло не так! Попробуйте ещё раз.");
+        err === INTERNAL_SERVER_ERROR && setStatus(INTERNAL_SERVER);
+        console.log(`Ошибка: ${err}`);
       });
   }
 
@@ -185,6 +196,7 @@ function App() {
             path="/signup"
             element={
               <Register
+                loggedIn={loggedIn}
                 onRegister={handleRegisterSubmit}
                 onSignOut={setIsOpenPopup}
               />
@@ -192,7 +204,7 @@ function App() {
           ></Route>
           <Route
             path="/signin"
-            element={<Login onLogin={handleLoginSubmit} />}
+            element={<Login onLogin={handleLoginSubmit} loggedIn={loggedIn} />}
           ></Route>
           <Route
             path="/profile"

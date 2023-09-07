@@ -35,33 +35,35 @@ function SearchForm({ onMoviesSearch, onMoviesFilter, isShortMovies }) {
 
   return (
     <section className="search-form">
-      <form className="search-form__container" onSubmit={handleSubmit}>
-        <input
-          className="search-form__input"
-          placeholder="Фильм"
-          type="text"
-          name="movie"
-          id="movie"
-          value={search || ""}
-          onChange={handleInputChange}
-          required
-        />
-        <button type="submit" className="search-form__button">
-          <img
-            className="search-form__logo"
-            src={searchLogo}
-            alt="Логотип поиска: лупа"
+      <div className="search-form__page">
+        <form className="search-form__container" onSubmit={handleSubmit}>
+          <input
+            className="search-form__input"
+            placeholder="Фильм"
+            type="text"
+            name="movie"
+            id="movie"
+            value={search || ""}
+            onChange={handleInputChange}
+            required
           />
-        </button>
-      </form>
-      {isError && <span className="search-form__error">{errorText}</span>}
+          <button type="submit" className="search-form__button">
+            <img
+              className="search-form__logo"
+              src={searchLogo}
+              alt="Логотип поиска: лупа"
+            />
+          </button>
+        </form>
+        {isError && <span className="search-form__error">{errorText}</span>}
 
-      <div className="search-form__toggle">
-        <FilterCheckbox
-          onMoviesFilter={onMoviesFilter}
-          isShortMovies={isShortMovies}
-        />
-        <p className="search-form__short-films">Короткометражки</p>
+        <div className="search-form__toggle">
+          <FilterCheckbox
+            onMoviesFilter={onMoviesFilter}
+            isShortMovies={isShortMovies}
+          />
+          <p className="search-form__short-films">Короткометражки</p>
+        </div>
       </div>
     </section>
   );

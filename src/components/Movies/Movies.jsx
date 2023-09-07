@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import { moviesApi } from "../../utils/MoviesApi";
+import { SHORT_DURATION } from "../../utils/constants";
 
 function Movies({ handleMovieLike, onMovieDelete, savedMovies }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +28,7 @@ function Movies({ handleMovieLike, onMovieDelete, savedMovies }) {
   }
 
   function handleFilterMoviesDuration(movies) {
-    return movies.filter((movie) => movie.duration <= 52);
+    return movies.filter((movie) => movie.duration <= SHORT_DURATION);
   }
 
   function handleSearchSubmit(movies, searchName, isShort) {
@@ -61,15 +62,15 @@ function Movies({ handleMovieLike, onMovieDelete, savedMovies }) {
     localStorage.setItem("movieSearch", search);
     localStorage.setItem("shortMoviesCheckbox", isShortMovies);
 
-    if (localStorage.getItem("movies") !== 0) {
-      setIsLoading(true);
-      handleGetMovies(search);
-    } else {
+    if (localStorage.getItem("movies")) {
       handleSearchSubmit(
         JSON.parse(localStorage.getItem("movies")),
         search,
         isShortMovies
       );
+    } else {
+      setIsLoading(true);
+      handleGetMovies(search);
     }
   }
 
@@ -99,7 +100,9 @@ function Movies({ handleMovieLike, onMovieDelete, savedMovies }) {
         ? setFoundShortMovies(handleFilterMoviesDuration(movies))
         : setFoundShortMovies(movies);
     }
+  }, []);
 
+  useEffect(() => {
     localStorage.getItem("shortMoviesCheckbox") === "true"
       ? setIsShortMovies(true)
       : setIsShortMovies(false);

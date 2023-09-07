@@ -10,7 +10,11 @@ function AuthForm(props) {
     <>
       <main className="auth">
         <section className="auth__section">
-          <form className="auth__form" onSubmit={props.onSubmit}>
+          <form
+            className="auth__form"
+            onSubmit={props.onSubmit}
+            disabled={props.isValid ? true : false}
+          >
             <Link to="/" className="auth__form-logo">
               <img
                 className="auth__logo"
@@ -26,6 +30,7 @@ function AuthForm(props) {
                 className="auth__input"
                 onChange={props.onEmailChange}
                 placeholder="Email"
+                pattern="^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$"
                 name="email"
                 type="email"
                 value={props.email || ""}

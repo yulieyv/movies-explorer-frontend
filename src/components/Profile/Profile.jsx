@@ -39,7 +39,7 @@ function Profile(props) {
     } else {
       setPreviosValue(false);
     }
-  }, [values]);
+  }, [values, currentUser]);
 
   return (
     <>
@@ -67,6 +67,7 @@ function Profile(props) {
               <input
                 className="profile__input"
                 value={values.email || ""}
+                pattern="^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$"
                 type="email"
                 name="email"
                 placeholder="Email"

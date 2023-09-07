@@ -30,6 +30,9 @@
   color: #ff6838;
   font-size: 14px;
   text-decoration: none;
+  border-width: 0;
+  box-shadow: none;
+  background-color: #FFF;
   transition: opacity 0.2s linear;
 }
 

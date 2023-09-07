@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 import AuthForm from "../AuthForm/AuthForm";
 import useFormWithValidation from "../../hooks/useFormWithValidation";
 
@@ -12,6 +12,9 @@ function Register(props) {
     props.onRegister(values);
   }
 
+  if (props.loggedIn) {
+    return <Navigate to="/movies" replace />;
+  }
   return (
     <>
       <AuthForm
@@ -36,10 +39,12 @@ function Register(props) {
                 maxLength={30}
                 required
                 autoComplete="off"
+                disabled={isValid ? true : false}
               ></input>
             </div>
           </>
         }
+        loggedIn={props.loggedIn}
         onEmailChange={handleChange}
         onPasswordChange={handleChange}
         onSubmit={handleSubmit}

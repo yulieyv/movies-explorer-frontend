@@ -1,4 +1,6 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
+
 import AuthForm from "../AuthForm/AuthForm";
 import useFormWithValidation from "../../hooks/useFormWithValidation";
 
@@ -9,9 +11,15 @@ function Login(props) {
     evt.preventDefault();
     props.onLogin(values);
   }
+
+  if (props.loggedIn) {
+    return <Navigate to="/movies" replace />;
+  }
+
   return (
     <>
       <AuthForm
+        loggedIn={props.loggedIn}
         onEmailChange={handleChange}
         onPasswordChange={handleChange}
         onSubmit={handleSubmit}

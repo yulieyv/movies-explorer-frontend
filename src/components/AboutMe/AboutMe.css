@@ -1,6 +1,8 @@
 .about-me {
   padding: 110px 70px 101px;
   color: #000;
+  width: 100%;
+  max-width: 1140px;
 }
 
 .about-me__title {
@@ -75,7 +77,9 @@
 @media screen and (max-width: 768px) {
   .about-me {
     padding: 90px 50px;
+    max-width: 668px;
   }
+
   .about-me__info {
     max-width: 364px;
   }
@@ -106,6 +110,7 @@
 @media screen and (max-width: 540px) {
   .about-me {
     padding: 74px 14px 70px;
+    max-width: 292px;
   }
 
   .about-me__title {

@@ -1,5 +1,5 @@
 import "./MoviesCard.css";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 
 function MoviesCard({
@@ -11,24 +11,15 @@ function MoviesCard({
   savedMovies,
 }) {
   const { pathname } = useLocation();
-  const [status, setStatus] = useState(false);
-
-  useEffect(() => {
-    if (savedMovies.some((movie) => movie.movieId === card.id)) {
-      setStatus(true);
-    }
-  }, [savedMovies, card.id]);
 
   function handleMovieSave() {
     if (isSaved) {
-      setStatus(false);
       onMovieDelete(
         savedMovies.find(
           (movie) => movie.movieId === card.id || movie.movieId === card.movieId
         )
       );
     } else {
-      setStatus(true);
       onMovieSave(card);
     }
   }
@@ -69,7 +60,7 @@ function MoviesCard({
               <button
                 type="button"
                 className={`card__saved-button card__saved-button${
-                  status ? "_active" : "_inactive"
+                  isSaved ? "_active" : "_inactive"
                 }`}
                 onClick={handleMovieSave}
               />

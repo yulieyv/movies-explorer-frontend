@@ -10,12 +10,12 @@ const DESKTOP = 1024;
 const TABLET = 768;
 const SHORT_DURATION = 52;
 
-const UNAUTHORIZED_LOGIN = "Неверные логин или пароль";
-const BAG_REQUEST_LOGIN = "Что-то пошло не так";
-const CONFLICT_REGISTER = "Пользователь с таким email уже зарегистрирован";
+const UNAUTHORIZED_LOGIN = "Неверные логин или пароль.";
+const BAG_REQUEST_LOGIN = "Что-то пошло не так.";
+const CONFLICT_REGISTER = "Пользователь с таким email уже зарегистрирован.";
 
 const UNAUTHORIZED_ERROR = "Ошибка 401 Unauthorized";
-const BAG_REQUEST_ERROR = "Ошибка 400 Bad request";
+const BAG_REQUEST_ERROR = "Ошибка 400 Bad Request";
 const CONFLICT_ERROR = "Ошибка 409 Conflict";
 
 const OK_STATUS_REGISTER = "Вы успешно зарегистрировались!";

@@ -88,7 +88,7 @@ function App() {
       })
       .catch((err) => {
         setIsOpenPopup(true);
-        err.status === BAG_REQUEST_ERROR && setStatus(UNAUTHORIZED_LOGIN);
+        err === BAG_REQUEST_ERROR && setStatus(UNAUTHORIZED_LOGIN);
         err === CONFLICT_ERROR && setStatus(CONFLICT_REGISTER);
         console.log(`Ошибка: ${err}`);
       });
